@@ -11,7 +11,7 @@
 			"name": "Get All Categories",
 			"item": [
 				{
-					"name": "https://api-with-bugs.practicesoftwaretesting.com/categories/tree",
+					"name": "Lấy tất cả danh mục",
 					"event": [
 						{
 							"listen": "test",
@@ -44,9 +44,21 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "https://api-with-bugs.practicesoftwaretesting.com/categories",
 							"protocol": "https",
@@ -68,7 +80,7 @@
 			"name": "Create Category",
 			"item": [
 				{
-					"name": "https://api-with-bugs.practicesoftwaretesting.com/categories/tree Copy",
+					"name": "Tạo danh mục mới",
 					"event": [
 						{
 							"listen": "test",
@@ -79,12 +91,18 @@
 									"});\r",
 									"\r",
 									"pm.test(\"Response contains created category\", function () {\r",
-									"    let jsonData = pm.response.json();\r",
+									"    const jsonData = pm.response.json();\r",
+									"\r",
 									"    pm.expect(jsonData).to.have.property(\"id\");\r",
-									"    pm.expect(jsonData).to.have.property(\"parent_id\", pm.iterationData.get(\"parent_id\"));\r",
+									"\r",
+									"    const parentId = pm.iterationData.get(\"parent_id\");\r",
+									"    const expectedParentId = parentId !== undefined ? parentId : null;\r",
+									"\r",
+									"    pm.expect(jsonData).to.have.property(\"parent_id\", expectedParentId);\r",
 									"    pm.expect(jsonData).to.have.property(\"name\", pm.iterationData.get(\"name\"));\r",
 									"    pm.expect(jsonData).to.have.property(\"slug\", pm.iterationData.get(\"slug\"));\r",
 									"});\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript",
@@ -97,7 +115,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"parent_id\": {{parent_id}},\r\n    \"name\": \"{{name}}\",\r\n    \"slug\": \"{{slug}}\"\r\n}",
+							"raw": "{\r\n    \"parent_id\": null,\r\n    \"name\": \"Measuring Tools\",\r\n    \"slug\": \"measuring-tools\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -125,7 +143,7 @@
 			"name": "Search Categories",
 			"item": [
 				{
-					"name": "https://api-with-bugs.practicesoftwaretesting.com/categories/tree Copy 2",
+					"name": "Tìm kiếm danh mục",
 					"event": [
 						{
 							"listen": "test",
