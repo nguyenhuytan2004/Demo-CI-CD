@@ -1,0 +1,47 @@
+[
+    {
+        "parent_id": null,
+        "name": "Measuring Tools",
+        "slug": "measuring-tools"
+    },
+    {
+        "parent_id": null,
+        "name": "Safety Equipment",
+        "slug": "safety-equipment"
+    },
+    {
+        "parent_id": null,
+        "name": "Garden Tools",
+        "slug": "garden-tools"
+    },
+    {
+        "parent_id": 1,
+        "name": "Tape Measure",
+        "slug": "tape-measure"
+    },
+    {
+        "parent_id": 1,
+        "name": "Caliper",
+        "slug": "caliper"
+    },
+    {
+        "parent_id": 2,
+        "name": "Gloves",
+        "slug": "gloves"
+    },
+    {
+        "parent_id": 2,
+        "name": "Safety Glasses",
+        "slug": "safety-glasses"
+    },
+    {
+        "parent_id": 3,
+        "name": "Pruner",
+        "slug": "pruner"
+    },
+    {
+        "parent_id": 3,
+        "name": "Hose Nozzle",
+        "slug": "hose-nozzle"
+    }
+]

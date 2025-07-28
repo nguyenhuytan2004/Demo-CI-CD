@@ -1,0 +1,13 @@
+[
+    { "keyword": "hand" },
+    { "keyword": "hammer" },
+    { "keyword": "wrench" },
+    { "keyword": "pliers" },
+    { "keyword": "power" },
+    { "keyword": "drill" },
+    { "keyword": "grinder" },
+    { "keyword": "saw" },
+    { "keyword": "sander" },
+    { "keyword": "other" },
+    { "keyword": "invalid-category-name" }
+]

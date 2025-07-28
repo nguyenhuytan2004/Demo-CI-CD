@@ -1,25 +1,38 @@
 name: Run Postman Tests
 
 on:
-  push:
-    branches: [ main ]
+    push:
+        branches: [main]
 
 jobs:
-  postman-tests:
-    runs-on: ubuntu-latest
+    postman-tests:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+            - name: Install Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
 
-      - name: Install Newman
-        run: npm install -g newman
+            - name: Install Newman
+              run: npm install -g newman
 
-      - name: Run Postman Test
-        run: |
-          newman run category-api-collection.json
+            - name: Run GET Categories
+              run: |
+                  newman run demo/collections/category-api-collection.json \
+                    --folder "Get All Categories"
+
+            - name: Run CREATE Category
+              run: |
+                  newman run demo/collections/category-api-collection.json \
+                    --folder "Create Category" \
+                    --iteration-data demo/data/category-data.json
+
+            - name: Run SEARCH Category
+              run: |
+                  newman run demo/collections/category-api-collection.json \
+                    --folder "Search Categories" \
+                    --iteration-data demo/data/search-data.json
