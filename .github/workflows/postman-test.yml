@@ -29,10 +29,10 @@ jobs:
               run: |
                   newman run demo/collections/category-api-collection.json \
                     --folder "Create Category" \
-                    --iteration-data demo/data/category-data.json
+                    --iteration-data demo/test-data/category-data.json
 
             - name: Run SEARCH Category
               run: |
                   newman run demo/collections/category-api-collection.json \
                     --folder "Search Categories" \
-                    --iteration-data demo/data/search-data.json
+                    --iteration-data demo/test-data/search-data.json
