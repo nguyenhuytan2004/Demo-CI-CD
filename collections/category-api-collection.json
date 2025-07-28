@@ -115,7 +115,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"parent_id\": null,\r\n    \"name\": \"Measuring Tools\",\r\n    \"slug\": \"measuring-tools\"\r\n}",
+							"raw": "{\r\n    \"parent_id\": {{parent_id}},\r\n    \"name\": \"{{name}}\",\r\n    \"slug\": \"{{slug}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
