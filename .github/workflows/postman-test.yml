@@ -22,17 +22,17 @@ jobs:
 
             - name: Run GET Categories
               run: |
-                  newman run demo/collections/category-api-collection.json \
+                  newman run collections/category-api-collection.json \
                     --folder "Get All Categories"
 
             - name: Run CREATE Category
               run: |
-                  newman run demo/collections/category-api-collection.json \
+                  newman run collections/category-api-collection.json \
                     --folder "Create Category" \
-                    --iteration-data demo/test-data/category-data.json
+                    --iteration-data test-data/category-data.json
 
             - name: Run SEARCH Category
               run: |
-                  newman run demo/collections/category-api-collection.json \
+                  newman run collections/category-api-collection.json \
                     --folder "Search Categories" \
-                    --iteration-data demo/test-data/search-data.json
+                    --iteration-data test-data/search-data.json
