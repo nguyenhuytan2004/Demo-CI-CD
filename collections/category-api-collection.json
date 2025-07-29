@@ -101,12 +101,6 @@
 									"    pm.expect(jsonData).to.have.property(\"parent_id\", expectedParentId);\r",
 									"    pm.expect(jsonData).to.have.property(\"name\", pm.iterationData.get(\"name\"));\r",
 									"    pm.expect(jsonData).to.have.property(\"slug\", pm.iterationData.get(\"slug\"));\r",
-									"\r",
-									"    console.log(\"RUNNING TEST\");\r",
-									"    console.log(\"Data name:\", pm.iterationData.get(\"name\"));\r",
-									"    console.log(\"Data slug:\", pm.iterationData.get(\"slug\"));\r",
-									"    console.log(\"Response body:\", pm.response.json());\r",
-									"\r",
 									"});\r",
 									"\r",
 									""
