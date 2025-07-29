@@ -101,8 +101,31 @@
 									"    pm.expect(jsonData).to.have.property(\"parent_id\", expectedParentId);\r",
 									"    pm.expect(jsonData).to.have.property(\"name\", pm.iterationData.get(\"name\"));\r",
 									"    pm.expect(jsonData).to.have.property(\"slug\", pm.iterationData.get(\"slug\"));\r",
+									"\r",
+									"    console.log(\"RUNNING TEST\");\r",
+									"    console.log(\"Data name:\", pm.iterationData.get(\"name\"));\r",
+									"    console.log(\"Data slug:\", pm.iterationData.get(\"slug\"));\r",
+									"    console.log(\"Response body:\", pm.response.json());\r",
+									"\r",
 									"});\r",
 									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let pid = pm.iterationData.get(\"parent_id\");\r",
+									"if (pid === null || pid === \"null\" || pid === \"\") {\r",
+									"    pm.variables.set(\"parent_id\", null);\r",
+									"} else {\r",
+									"    pm.variables.set(\"parent_id\", pid);\r",
+									"}\r",
+									"console.log(pid)\r",
 									""
 								],
 								"type": "text/javascript",
@@ -160,10 +183,12 @@
 									"\r",
 									"pm.test(\"Search result contains query term\", function () {\r",
 									"    let jsonData = pm.response.json();\r",
-									"    let query = pm.iterationData.get(\"search\").toLowerCase();\r",
-									"    jsonData.forEach(cat => {\r",
-									"        pm.expect(cat.name.toLowerCase()).to.include(query);\r",
-									"    });\r",
+									"    let query = pm.iterationData.get(\"keyword\").toLowerCase();\r",
+									"    if (jsonData.length > 0) {\r",
+									"        jsonData.forEach(cat => {\r",
+									"            pm.expect(cat.name.toLowerCase()).to.include(query);\r",
+									"        });\r",
+									"    }\r",
 									"});\r",
 									""
 								],
